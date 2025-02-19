@@ -1,0 +1,2 @@
+C:/DevPrograms/projetos/quitanda/android/app/.cxx/Debug/69631t2h/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/DevPrograms/projetos/quitanda/android/app/.cxx/Debug/69631t2h/armeabi-v7a/CMakeFiles/rebuild_cache.dir
