@@ -7,55 +7,89 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green, // Define a cor de fundo da tela como verde
-
+      backgroundColor: Colors.green,
       appBar: AppBar(
-        title: Text("QUITANDA"), // Define o título do AppBar
-        backgroundColor: const Color.fromARGB(255, 124, 180, 137), // Cor de fundo do AppBar
-      ),
-
-      body: Column( // Organiza os elementos verticalmente na tela
-        children: [
-          Expanded( // Expande o primeiro container para ocupar metade da tela
-            child: Container(
-              color: Colors.green, // Define a cor do container como verde
-            ),
+        title: const Text(
+          "QUITANDA",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
           ),
-          
-          Container( // Segunda metade da tela, onde fica o formulário de login
-            padding: const EdgeInsets.symmetric(
-              horizontal: 32, // Define o padding horizontal
-              vertical: 40, // Define o padding vertical
-            ),
-
-            decoration: const BoxDecoration(
-              color: Colors.white, // Cor de fundo branca para o formulário
-              borderRadius: BorderRadius.vertical(
-              top: Radius.circular(45), // Arredonda o topo do container
+        ),
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 124, 180, 137),
+        elevation: 0,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.green, Colors.lightGreen],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Center(
+                child: Image.asset(
+                  'lib/assets/images/cachorroQuente.jpg', // Adicione a logo no pubspec.yaml
+                  height: 100,
+                ),
               ),
             ),
-
-            child: Column( 
-              crossAxisAlignment: CrossAxisAlignment.stretch,// Organiza os campos de texto verticalmente
-               children: [
-                //Email
-                const CustomTextField(
-                  icon: Icons.email, // Ícone do campo de e-mail
-                  label: 'Email', // Texto do rótulo
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(45)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 10,
+                  offset: Offset(0, -5),
+                )
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const CustomTextField(icon: Icons.email, label: 'Email'),
+                const SizedBox(height: 16),
+                const CustomTextField(icon: Icons.lock, label: 'Senha', isSecret: true),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "Esqueci minha senha",
+                      style: TextStyle(color: Colors.green),
+                    ),
                   ),
-
-                //Senha
-                const CustomTextField(
-                  icon: Icons.lock, // Ícone do campo de senha
-                  label: 'Senha', // Texto do rótulo
-                  isSecret: true, // Define que este campo é secreto (senha)
                 ),
-               ],
+                const SizedBox(height: 24),
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Text(
+                      "Entrar",
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
       ),
-    ); 
-     
+    );
   }
 }
